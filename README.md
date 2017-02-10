@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/applee/flag.svg?branch=master)](https://travis-ci.org/applee/flag)
+
 # Usage
 
 ```go
