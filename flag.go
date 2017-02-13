@@ -125,16 +125,20 @@ func Parse() error {
 		return err
 	}
 
-	cf := ex.FlagSet.Lookup(DefaultConfigFlagName).Value.String()
-	if len(cf) > 0 {
-		info, err := os.Stat(cf)
+	cf := ex.FlagSet.Lookup(DefaultConfigFlagName)
+	if cf == nil {
+		return nil
+	}
+	path := cf.Value.String()
+	if len(path) > 0 {
+		info, err := os.Stat(path)
 		if err != nil || info.IsDir() {
 			return errors.New("Invalid config file.")
 		}
-		ext := filepath.Ext(cf)
+		ext := filepath.Ext(path)
 		switch ext {
 		case ".toml":
-			return ex.ParseTOML(cf)
+			return ex.ParseTOML(path)
 		default:
 			return errors.New("Unsupported config file.")
 		}
