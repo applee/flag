@@ -33,5 +33,5 @@ func main() {
 	fmt.Println("age:", age)
 	fmt.Println("name:", name)
 	fmt.Println("female:", female)
-	fmt.Println("hobies:", extHobbies)
+	fmt.Println("hobbies:", extHobbies)
 }

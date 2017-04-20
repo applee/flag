@@ -24,7 +24,8 @@ func (f *FlagSetEx) ParseEnv(environ []string) error {
 		if f.envPrefix != "" {
 			envKey = f.envPrefix + "_" + envKey
 		}
-		envKey = strings.Replace(envKey, "-", "_", -1)
+		r := strings.NewReplacer("-", "_", ".", "_")
+		envKey = r.Replace(envKey)
 
 		value, isSet := env[envKey]
 		if !isSet || len(value) <= 0 {
