@@ -3,6 +3,7 @@ package flag
 import (
 	"errors"
 	"flag"
+	"io"
 	"os"
 	"path/filepath"
 	"time"
@@ -16,7 +17,7 @@ type FlagSetEx struct {
 var DefaultConfigFlagName = "config"
 
 var ex = &FlagSetEx{
-	flag.NewFlagSet(os.Args[0], flag.ExitOnError),
+	flag.NewFlagSet(os.Args[0], flag.ContinueOnError),
 	"",
 }
 
@@ -144,4 +145,12 @@ func Parse() error {
 		}
 	}
 	return nil
+}
+
+func SetOutput(output io.Writer) {
+	ex.FlagSet.SetOutput(output)
+}
+
+func Init(name string, errorHandling flag.ErrorHandling) {
+	ex.FlagSet.Init(name, errorHandling)
 }
