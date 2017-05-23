@@ -15,11 +15,11 @@ func (f *FlagSetEx) ParseTOML(path string) error {
 	return f.loadTOMLTree(tree, nil)
 }
 
-func (f *FlagSetEx) loadTOMLTree(tree *toml.TomlTree, path []string) error {
+func (f *FlagSetEx) loadTOMLTree(tree *toml.Tree, path []string) error {
 	for _, key := range tree.Keys() {
 		fullPath := append(path, key)
 		value := tree.Get(key)
-		if subtree, isTree := value.(*toml.TomlTree); isTree {
+		if subtree, isTree := value.(*toml.Tree); isTree {
 			err := f.loadTOMLTree(subtree, fullPath)
 			if err != nil {
 				return err
