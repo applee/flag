@@ -1,0 +1,13 @@
+memo = "24db4362d23306bb9f47b189e41eef52cee004fb8e8808c1cc1cc08843f20344"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/pelletier/go-buffruneio"
+  packages = ["."]
+  revision = "c37440a7cf42ac63b919c752ca73a85067e05992"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/pelletier/go-toml"
+  packages = ["."]
+  revision = "5c26a6ff6fd178719e15decac1c8196da0d7d6d1"
