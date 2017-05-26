@@ -154,3 +154,7 @@ func SetOutput(output io.Writer) {
 func Init(name string, errorHandling flag.ErrorHandling) {
 	ex.FlagSet.Init(name, errorHandling)
 }
+
+func Set(name, value string) error {
+	return ex.FlagSet.Set(name, value)
+}
