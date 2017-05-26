@@ -1,6 +1,11 @@
 length=175.5
 age=2
 name="Gloria"
+work_time="1m"
 
 [ext]
 hobbies="swiming,basketball"
+    [ext.linkman.parent]
+    dad="Mar"
+    mom="Venus"
+
