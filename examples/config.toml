@@ -4,7 +4,7 @@ name="Gloria"
 work_time="1m"
 
 [ext]
-hobbies="swiming,basketball"
+hobbies=[ "swiming" , "basketball"]
     [ext.linkman.parent]
     dad="Mar"
     mom="Venus"
