@@ -98,6 +98,7 @@ func Float64(name string, value float64, usage string) *float64 {
 	return ex.FlagSet.Float64(name, value, usage)
 }
 
+// Float64Var defines a float64 flag with specified name, default value, and usage string.
 func Float64Var(p *float64, name string, value float64, usage string) {
 	ex.FlagSet.Float64Var(p, name, value, usage)
 }
@@ -107,8 +108,19 @@ func Duration(name string, value time.Duration, usage string) *time.Duration {
 	return ex.FlagSet.Duration(name, value, usage)
 }
 
+// DurationVar defines a time.Duration flag with specified name, default value, and usage string.
 func DurationVar(p *time.Duration, name string, value time.Duration, usage string) {
 	ex.FlagSet.DurationVar(p, name, value, usage)
+}
+
+// Var defines a flag with the specified name and usage string. The type and
+// value of the flag are represented by the first argument, of type Value, which
+// typically holds a user-defined implementation of Value. For instance, the
+// caller could create a flag that turns a comma-separated string into a slice
+// of strings by giving the slice the methods of Value; in particular, Set would
+// decompose the comma-separated string into the slice.
+func Var(p flag.Value, name string, usage string) {
+	ex.FlagSet.Var(p, name, usage)
 }
 
 // Parse parses the command-line, environment variables and config file flags
